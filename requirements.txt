@@ -2,3 +2,7 @@ pyTelegramBotAPI
 SQLAlchemy
 psycopg2-binary
 python-dotenv
+aiogram
+asyncpg
+APScheduler
+python-decouple
