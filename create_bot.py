@@ -92,8 +92,15 @@ async def catch_all_messages(message: types.Message):
                 await bot.send_message(admin_id, f'👤 {user_id} : {description}')
         else:
             for admin_id in ADMINS:
-                await bot.send_message(admin_id, f'👤 {user_id} : {user_text}')
-###
+                reply_button = InlineKeyboardMarkup(
+                    inline_keyboard=[
+                        [InlineKeyboardButton(
+                            text="💬 Ответить",
+                            switch_inline_query_current_chat=f"/reply {user_id} "
+                        )]
+                    ]
+                )
+                await bot.send_message(admin_id, f'👤 {user_id} : {user_text}', reply_markup=reply_button)
 
 
 
